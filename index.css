@@ -1,0 +1,44 @@
+.ligne {
+  display: flex;
+  justify-content: center;
+}
+
+.case {
+  flex:auto;
+  height:100px;
+  max-width:100px;
+  background-image: url("img/grass.jpg");
+  background-size: cover;
+  background-position-x: center;
+  border: white 1px solid;
+  color:white;
+}
+
+.rock {
+  background-image:  url("img/rock.jpg");
+}
+
+.baton {
+  background-image:  url("img/baton.jpg");
+}
+
+.fleau {
+  background-image:  url("img/fleau.jpg");
+}
+.masse {
+  background-image:  url("img/masse.jpg");
+}
+.hache {
+  background-image:  url("img/hache.jpg");
+}
+.sabre_laser {
+  background-image:  url("img/sabrelaser.jpg");
+}
+
+.joueur1 {
+  background-image:  url("img/joueur1.jpg");
+}
+
+.joueur2 {
+  background-image:  url("img/joueur2.jpg");
+}

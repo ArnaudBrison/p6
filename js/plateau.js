@@ -2,10 +2,10 @@ var plateau_fonction = {
   init_plateau : function() {
     var id_case = 1;
     //initialisation des 9 ligne
-    for ( var nombre_ligne = 0; nombre_ligne < 9; nombre_ligne++) {
+    for ( var nombre_ligne = 0; nombre_ligne < ligne_max; nombre_ligne++) {
       var ligne = $('<div/>').addClass("ligne").appendTo("#plateau");
       //initialisation des 90 case
-      for ( var nombre_case = 0; nombre_case < 10; nombre_case++) {
+      for ( var nombre_case = 0; nombre_case < case_par_ligne_max; nombre_case++) {
         $('<div/>').attr("id",id_case).addClass('case').append(id_case).appendTo(ligne);
         id_case ++;
       }
@@ -13,7 +13,7 @@ var plateau_fonction = {
     //initialisation des rochers
     var nb_case = Math.floor(Math.random() * 15) + 5;
     for ( var i = 0; i < nb_case; i++) {
-      var num_case = Math.floor(Math.random() * 90) + 1;
+      var num_case = Math.floor(Math.random() * case_totale) + 1;
       $('#' + num_case).addClass("rock");
     }
   },
@@ -23,9 +23,9 @@ var plateau_fonction = {
     //variable aleatoire du nombre d'armes
     var nb_case = Math.floor(Math.random() * 4) + 1;
     for ( var i = 0; i < nb_case; i++) {
-      var num_case = Math.floor(Math.random() * 90) + 1;
+      var num_case = Math.floor(Math.random() * case_totale) + 1;
       while ($('#' + num_case).hasClass('rock') || $('#' + num_case).hasClass('arme')){
-        if (num_case == 90){
+        if (num_case == case_totale){
           num_case = 0
         }
         num_case ++;
@@ -36,9 +36,9 @@ var plateau_fonction = {
 
   //placement du joueur1
   placement_joueur1 : function() {
-    var num_case = Math.floor(Math.random() * 90) + 1;
+    var num_case = Math.floor(Math.random() * case_totale) + 1;
     while ($('#' + num_case).hasClass('rock') || $('#' + num_case).hasClass('arme')){
-      if (num_case == 90){
+      if (num_case == case_totale){
         num_case = 0
       }
       num_case ++;
@@ -48,7 +48,7 @@ var plateau_fonction = {
 
   //placement du joueur2
   placement_joueur2 : function() {
-    var num_case = Math.floor(Math.random() * 90) + 1;
+    var num_case = Math.floor(Math.random() * case_totale) + 1;
     while (num_case){
       num_case_moins_1 = num_case - 1;
       num_case_plus_1 = num_case + 1;
@@ -145,7 +145,7 @@ var plateau_fonction = {
       if ($('#' + num_case).hasClass('joueur2')){
         break;
       }
-      if (num_case == 90){
+      if (num_case == case_totale){
         num_case = 0
       }
       num_case ++;

@@ -53,17 +53,16 @@ var plateau_fonction = {
   placement_joueur2 : function() {
     var num_case = Math.floor(Math.random() * case_totale) + 1;
     while (num_case){
-      console.log('num_case',num_case);
       num_case_moins_1 = num_case - 1;
       num_case_plus_1 = num_case + 1;
       num_case_plus_10 = num_case + 10;
       num_case_moins_10 = num_case - 10;
       if ($('#' + num_case).hasClass('vide')){
-        if (num_case_plus_10 > case_totale || !$('#' + num_case_plus_10).hasClass('joueur1')){
+        if (num_case_plus_10 >= case_totale || !$('#' + num_case_plus_10).hasClass('joueur1')){
           if (num_case_moins_10 < 0 || !$('#' + num_case_moins_10).hasClass('joueur1')){
             if (num_case % colonne_max == 0 || !$('#' + num_case_plus_1).hasClass('joueur1')){
               if (num_case_moins_1 % colonne_max == 0 || !$('#' + num_case_moins_1).hasClass('joueur1')){
-                $('#' + num_case).addClass('joueur2').append(' joueur2');
+                $('#' + num_case).addClass('joueur2').removeClass('vide');
               }
             }
           }
@@ -76,5 +75,4 @@ var plateau_fonction = {
       num_case = Math.floor(Math.random() * case_totale) + 1;
     }
   },
-
 }

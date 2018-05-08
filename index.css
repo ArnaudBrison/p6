@@ -42,3 +42,7 @@
 .joueur2 {
   background-image:  url("img/joueur2.jpg");
 }
+
+.case_active {
+  border: red 1px solid;
+}

@@ -44,7 +44,7 @@ $(document).on('click', '.case_active', function () {
   if ($('#' + num_new_case_plus_1).hasClass('joueur') || $('#' + num_new_case_plus_10).hasClass('joueur')
   || $('#' + num_new_case_moins_1).hasClass('joueur') || $('#' + num_new_case_moins_10).hasClass('joueur')){
     combat_fonction.combat();
-    break;
+    return;
   }
   //changement joueur actif
   if (tour_fonction.joueur_actif == "joueur1"){

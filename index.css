@@ -43,6 +43,44 @@
   background-image:  url("img/joueur2.jpg");
 }
 
+.joueur1_tab {
+  background-image:  url("img/joueur1.jpg");
+}
+
+.joueur2_tab {
+  background-image:  url("img/joueur2.jpg");
+}
+
 .case_active {
   border: red 1px solid;
+}
+
+#tab_joueur1 {
+  text-align: center;
+}
+
+#tab_joueur1 .case{
+  margin: auto;
+}
+
+#tab_joueur2 .case{
+  margin: auto;
+}
+
+#tab_joueur2 {
+  text-align: center;
+}
+
+.div_bouton {
+  display: flex;
+  width: 108%;
+
+}
+
+.material-icons{
+  color: black;
+}
+
+.attq_btn {
+  margin-right: 3px;
 }

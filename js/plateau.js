@@ -75,4 +75,18 @@ var plateau_fonction = {
       num_case = Math.floor(Math.random() * case_totale) + 1;
     }
   },
+
+  init_info_joueur : function(joueur){
+    $('#tab_' + joueur.nom).empty();
+    $('<p/>').append('nom: ' + joueur.nom).appendTo('#tab_' + joueur.nom);
+    $('<p/>').addClass('case ' + joueur.nom +'_tab').appendTo('#tab_' + joueur.nom);
+    $('<p/>').append('sante: ' + joueur.sante).appendTo('#tab_' + joueur.nom);
+    $('<p/>').append('arme: ' + joueur.arme).appendTo('#tab_' + joueur.nom);
+    $('<p/>').append('degats: ' + joueur.degats).appendTo('#tab_' + joueur.nom);
+    var div_bouton = $('<div/>').addClass('div_bouton').appendTo('#tab_' + joueur.nom);
+    var bouton_attq = $('<a/>').addClass('waves-effect waves-light btn-small attq_btn red').append('Attaquer').appendTo(div_bouton);
+    $('<i/>').addClass('material-icons right').append('restaurant').appendTo(bouton_attq);
+    var bouton_def = $('<a/>').addClass('waves-effect waves-light btn-small attq_btn blue').append('Defendre').appendTo(div_bouton);
+    $('<i/>').addClass('material-icons right').append('security').appendTo(bouton_def);
+  },
 }

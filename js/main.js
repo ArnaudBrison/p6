@@ -19,5 +19,8 @@ var joueur2 = new joueur.init("joueur2");
 plateau_fonction.send_joueur1_to_placement();
 //mise en place du joueur 2
 plateau_fonction.placement_joueur2();
+//init tab info joueur
+plateau_fonction.init_info_joueur(joueur1);
+plateau_fonction.init_info_joueur(joueur2);
 //lancement tour par tour_joueur
 tour_fonction.tour_joueur();

@@ -84,9 +84,9 @@ var plateau_fonction = {
     $('<p/>').append('arme: ' + joueur.arme).appendTo('#tab_' + joueur.nom);
     $('<p/>').append('degats: ' + joueur.degats).appendTo('#tab_' + joueur.nom);
     var div_bouton = $('<div/>').addClass('div_bouton').appendTo('#tab_' + joueur.nom);
-    var bouton_attq = $('<a/>').addClass('waves-effect waves-light btn-small attq_btn red').append('Attaquer').appendTo(div_bouton);
+    var bouton_attq = $('<a/>').addClass('waves-effect waves-light btn-small attq_def_btn  red').append('Attaquer').appendTo(div_bouton).hide();
     $('<i/>').addClass('material-icons right').append('restaurant').appendTo(bouton_attq);
-    var bouton_def = $('<a/>').addClass('waves-effect waves-light btn-small attq_btn blue').append('Defendre').appendTo(div_bouton);
+    var bouton_def = $('<a/>').addClass('waves-effect waves-light btn-small attq_def_btn blue').append('Defendre').appendTo(div_bouton).hide();
     $('<i/>').addClass('material-icons right').append('security').appendTo(bouton_def);
   },
 }

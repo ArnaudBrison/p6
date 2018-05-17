@@ -43,6 +43,7 @@ $(document).on('click', '.case_active', function () {
   var num_new_case_moins_10 = +num_new_case - 10;
   if ($('#' + num_new_case_plus_1).hasClass('joueur') || $('#' + num_new_case_plus_10).hasClass('joueur')
   || $('#' + num_new_case_moins_1).hasClass('joueur') || $('#' + num_new_case_moins_10).hasClass('joueur')){
+    $('.attq_def_btn').show();
     combat_fonction.combat();
     return;
   }

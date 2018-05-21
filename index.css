@@ -75,16 +75,30 @@ body {
   text-align: center;
 }
 
-.div_bouton {
-  display: flex;
-  width: 108%;
-
-}
-
 .material-icons{
   color: black;
 }
 
 .attq_def_btn {
   margin-right: 3px;
+}
+
+.modal {
+  position: absolute!important;
+  float: left;
+  left: 50%!important;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.modal .modal-content {
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .div_bouton{
+    margin-bottom: 3%;
+  }
+
 }

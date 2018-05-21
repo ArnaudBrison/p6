@@ -19,13 +19,11 @@ $(document).on('click', '.case_active', function () {
       joueur1.arme = arme;
       joueur1.degats = eval(arme).degats;
       plateau_fonction.init_info_joueur(joueur1);
-      console.log(joueur1);
     } else if (tour_fonction.joueur_actif == "joueur2"){
       $(new_case_joueur).removeClass(arme).addClass(joueur2.arme);
       joueur2.arme = arme;
       joueur2.degats = eval(arme).degats;
       plateau_fonction.init_info_joueur(joueur2);
-      console.log(joueur2);
     }
   }
   //ajout joueur sur nouvelle case
@@ -41,18 +39,50 @@ $(document).on('click', '.case_active', function () {
   var num_new_case_plus_10 = +num_new_case + 10;
   var num_new_case_moins_1 = +num_new_case - 1;
   var num_new_case_moins_10 = +num_new_case - 10;
-  if ($('#' + num_new_case_plus_1).hasClass('joueur') || $('#' + num_new_case_plus_10).hasClass('joueur')
-  || $('#' + num_new_case_moins_1).hasClass('joueur') || $('#' + num_new_case_moins_10).hasClass('joueur')){
-    $('.attq_def_btn').show();
+
+  if (num_new_case_plus_10 <= case_totale && $('#' + num_new_case_plus_10).hasClass('joueur')){
     combat_fonction.combat();
-    return;
+    return false;
   }
+  if (num_new_case_moins_10 > 0 && $('#' + num_new_case_moins_10).hasClass('joueur')){
+    combat_fonction.combat();
+    return false;
+  }
+  if (num_new_case % colonne_max != 0 && $('#' + num_new_case_plus_1).hasClass('joueur')){
+    combat_fonction.combat();
+    return false;
+  }
+  if (num_new_case_moins_1 % colonne_max != 0 && $('#' + num_new_case_moins_1).hasClass('joueur')){
+    combat_fonction.combat();
+    return false;
+  }
+
   //changement joueur actif
-  if (tour_fonction.joueur_actif == "joueur1"){
-    tour_fonction.joueur_actif = "joueur2"
+  tour_fonction.changement_joueur();
+});
+
+$(document).on('click', '.attq', function () {
+  var degats = eval(tour_fonction.joueur_actif).degats;
+  if (eval(tour_fonction.joueur_inactif).def == 'oui'){
+    degats = degats / 2;
+    eval(tour_fonction.joueur_inactif).sante = eval(tour_fonction.joueur_inactif).sante - degats;
+    eval(tour_fonction.joueur_inactif).def = 'non'
   } else {
-    tour_fonction.joueur_actif = "joueur1"
+    eval(tour_fonction.joueur_inactif).sante = eval(tour_fonction.joueur_inactif).sante - degats;
   }
-  //rapelle tour
-  tour_fonction.tour_joueur();
+  if (eval(tour_fonction.joueur_inactif).sante <= 0){
+    eval(tour_fonction.joueur_inactif).sante = 0;
+    plateau_fonction.init_info_joueur(eval(tour_fonction.joueur_inactif));
+    $('#tab_' + tour_fonction.joueur_actif).find('.attq_def_btn').hide();
+    $('#modal_end').css("background-color", eval(tour_fonction.joueur_actif).color).show();
+    $('#modal_end').find('h4').append(tour_fonction.joueur_actif.toUpperCase() + ' a gagner!');
+    return false;
+  }
+  plateau_fonction.init_info_joueur(eval(tour_fonction.joueur_inactif));
+  tour_fonction.changement_joueur();
+});
+
+$(document).on('click', '.def', function () {
+  eval(tour_fonction.joueur_actif).def = "oui";
+  tour_fonction.changement_joueur();
 });

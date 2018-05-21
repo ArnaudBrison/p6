@@ -13,8 +13,8 @@ armes.tab_armes.push(fleau, masse, hache, sabre_laser, baton);
 // mise en place des arme
 plateau_fonction.send_arme_to_placement();
 //initialisation des joueurs
-var joueur1 = new joueur.init("joueur1");
-var joueur2 = new joueur.init("joueur2");
+var joueur1 = new joueur.init("joueur1",'#b50909');
+var joueur2 = new joueur.init("joueur2", '#030396');
 //mise en place du joueur 1
 plateau_fonction.send_joueur1_to_placement();
 //mise en place du joueur 2

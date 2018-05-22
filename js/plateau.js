@@ -7,7 +7,7 @@ var plateau_fonction = {
       var ligne = $('<div/>').addClass("ligne").appendTo("#plateau");
       //initialisation des 90 case
       for ( var nombre_colonne = 0; nombre_colonne < colonne_max; nombre_colonne++) {
-        $('<div/>').attr("id",id_case).addClass('case vide').append(id_case).appendTo(ligne);
+        $('<div/>').attr("id",id_case).addClass('case vide').appendTo(ligne);
         id_case ++;
       }
     }
@@ -85,7 +85,7 @@ var plateau_fonction = {
     $('<p/>').append('Arme: ' + joueur.arme).appendTo('#tab_' + joueur.nom);
     $('<p/>').addClass('case ' + joueur.arme).appendTo('#tab_' + joueur.nom);
     $('<p/>').append('Degats: ' + joueur.degats).appendTo('#tab_' + joueur.nom);
-    $('<p/>').append('Ton tour').attr('id','turn_' + joueur.nom).appendTo('#tab_' + joueur.nom).hide();
+    $('<h4/>').append('Ton tour').attr('id','turn_' + joueur.nom).appendTo('#tab_' + joueur.nom).hide();
     var div_bouton = $('<div/>').addClass('div_bouton').appendTo('#tab_' + joueur.nom);
     $('<a/>').addClass('waves-effect waves-light btn-small attq_def_btn attq  red').append('Attaquer').appendTo(div_bouton).hide();
     $('<a/>').addClass('waves-effect waves-light btn-small attq_def_btn def blue').append('Defendre').appendTo(div_bouton).hide();

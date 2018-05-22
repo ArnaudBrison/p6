@@ -61,6 +61,7 @@ $(document).on('click', '.case_active', function () {
   tour_fonction.changement_joueur();
 });
 
+//gestion bouton attaquer
 $(document).on('click', '.attq', function () {
   var degats = eval(tour_fonction.joueur_actif).degats;
   if (eval(tour_fonction.joueur_inactif).def == 'oui'){
@@ -82,6 +83,7 @@ $(document).on('click', '.attq', function () {
   tour_fonction.changement_joueur();
 });
 
+//gestion bouton deffendre
 $(document).on('click', '.def', function () {
   eval(tour_fonction.joueur_actif).def = "oui";
   tour_fonction.changement_joueur();

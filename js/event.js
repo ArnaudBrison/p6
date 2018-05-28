@@ -76,7 +76,7 @@ $(document).on('click', '.attq', function () {
     plateau_fonction.init_info_joueur(eval(tour_fonction.joueur_inactif));
     $('#tab_' + tour_fonction.joueur_actif).find('.attq_def_btn').hide();
     $('#modal_end').css("background-color", eval(tour_fonction.joueur_actif).color).show();
-    $('#modal_end').find('h4').append(tour_fonction.joueur_actif.toUpperCase() + ' a gagner!');
+    $('#modal_end').find('h4').append(tour_fonction.joueur_actif.toUpperCase() + ' a gagné !');
     return false;
   }
   plateau_fonction.init_info_joueur(eval(tour_fonction.joueur_inactif));

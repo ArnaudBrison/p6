@@ -10,7 +10,7 @@ var tour_fonction = {
     //gestion case + 10/20/30
     var case_plus_10 = +case_joueur;
     for (var i = 0; i < 3; i++){
-       case_plus_10 = case_plus_10 + 10;
+       case_plus_10 = case_plus_10 + colonne_max;
       if (!$('#' + case_plus_10).hasClass('rock') && case_plus_10 <= case_totale && !$('#' + case_plus_10).hasClass('joueur')){
         $('#' + case_plus_10).addClass('case_active');
       } else {
@@ -21,7 +21,7 @@ var tour_fonction = {
     //gestion case - 10/20/30
     var case_moins_10 = +case_joueur;
     for (var i = 0; i < 3; i++){
-      case_moins_10 = case_moins_10 - 10;
+      case_moins_10 = case_moins_10 - colonne_max;
       if (!$('#' + case_moins_10).hasClass('rock') && case_moins_10 > 0 && !$('#' + case_moins_10).hasClass('joueur')){
         $('#' + case_moins_10).addClass('case_active');
       } else {

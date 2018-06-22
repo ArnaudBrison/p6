@@ -25,8 +25,16 @@ var plateau_fonction = {
       while (!$('#' + num_case).hasClass('vide')){
         num_case = Math.floor(Math.random() * case_totale) + 1;
       }
-      if (Array.isArray(variable)){
-        variable_out = variable[i].nom;
+      if (type == 'arme '){
+        var y = 0;
+        for(var key in arme)
+        {
+          variable_out = key;
+          if (y == i){
+            break;
+          }
+          y++;
+        }
       }
       $('#' + num_case).addClass(type + variable_out).removeClass('vide');
     }
@@ -42,7 +50,7 @@ var plateau_fonction = {
   send_arme_to_placement : function() {
     //variable aleatoire du nombre d'armes
     var nb_case = Math.floor(Math.random() * 4) + 1;
-    plateau_fonction.placement('arme ', nb_case, armes.tab_armes);
+    plateau_fonction.placement('arme ', nb_case, arme);
   },
 
   //placement du joueur1
@@ -56,8 +64,8 @@ var plateau_fonction = {
     while (num_case){
       num_case_moins_1 = num_case - 1;
       num_case_plus_1 = num_case + 1;
-      num_case_plus_10 = num_case + 10;
-      num_case_moins_10 = num_case - 10;
+      num_case_plus_10 = num_case + colonne_max;
+      num_case_moins_10 = num_case - colonne_max;
       if ($('#' + num_case).hasClass('vide')){
         if (num_case_plus_10 >= case_totale || !$('#' + num_case_plus_10).hasClass('joueur1')){
           if (num_case_moins_10 < 0 || !$('#' + num_case_moins_10).hasClass('joueur1')){

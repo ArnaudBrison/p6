@@ -4,8 +4,10 @@ var joueur = {
     this.nom = nom;
     this.sante = 100;
     this.arme = "baton";
-    this.degats = eval(this.arme).degats;
+    this.degats = arme[this.arme];
     this.def = 'non';
     this.color = color;
   },
 }
+
+var tab_joueur = new Array();

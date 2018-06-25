@@ -38,15 +38,15 @@ $(document).on('click', '.case_active', function () {
   //gestion rencontre joueur
   var num_new_case = $(new_case_joueur).attr('id');
   var num_new_case_plus_1 = +num_new_case + 1;
-  var num_new_case_plus_10 = +num_new_case + colonne_max;
+  var num_new_case_plus_colonne = +num_new_case + colonne_max;
   var num_new_case_moins_1 = +num_new_case - 1;
-  var num_new_case_moins_10 = +num_new_case - colonne_max;
+  var num_new_case_moins_colonne = +num_new_case - colonne_max;
 
-  if (num_new_case_plus_10 <= case_totale && $('#' + num_new_case_plus_10).hasClass('joueur')){
+  if (num_new_case_plus_colonne <= case_totale && $('#' + num_new_case_plus_colonne).hasClass('joueur')){
     combat_fonction.combat();
     return false;
   }
-  if (num_new_case_moins_10 > 0 && $('#' + num_new_case_moins_10).hasClass('joueur')){
+  if (num_new_case_moins_colonne > 0 && $('#' + num_new_case_moins_colonne).hasClass('joueur')){
     combat_fonction.combat();
     return false;
   }
@@ -65,8 +65,6 @@ $(document).on('click', '.case_active', function () {
 
 //gestion bouton attaquer
 $(document).on('click', '.attq', function () {
-  console.log(tab_joueur[tour_fonction.joueur_actif]);
-  console.log(tab_joueur[tour_fonction.joueur_actif].degats);
   var degats = tab_joueur[tour_fonction.joueur_actif].degats;
   if (tab_joueur[tour_fonction.joueur_inactif].def == 'oui'){
     degats = degats / 2;

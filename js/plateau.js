@@ -13,12 +13,12 @@ var plateau_fonction = {
     }
   },
 
-  placement : function(type, nb_case, variable){
-    if (variable == undefined){
-      variable_out = '';
+  placement : function(type, nb_case, parametre_sup){
+    if (parametre_sup == undefined){
+      parametre_sup_out = '';
     }
-    if (variable == 'joueur'){
-      variable_out = variable;
+    if (parametre_sup == 'joueur'){
+      parametre_sup_out = parametre_sup;
     }
     for ( var i = 0; i < nb_case; i++) {
       var num_case = Math.floor(Math.random() * case_totale) + 1;
@@ -29,14 +29,14 @@ var plateau_fonction = {
         var y = 0;
         for(var key in arme)
         {
-          variable_out = key;
+          parametre_sup_out = key;
           if (y == i){
             break;
           }
           y++;
         }
       }
-      $('#' + num_case).addClass(type + variable_out).removeClass('vide');
+      $('#' + num_case).addClass(type + parametre_sup_out).removeClass('vide');
     }
   },
 
@@ -64,11 +64,11 @@ var plateau_fonction = {
     while (num_case){
       num_case_moins_1 = num_case - 1;
       num_case_plus_1 = num_case + 1;
-      num_case_plus_10 = num_case + colonne_max;
-      num_case_moins_10 = num_case - colonne_max;
+      num_case_plus_colonne = num_case + colonne_max;
+      num_case_moins_colonne = num_case - colonne_max;
       if ($('#' + num_case).hasClass('vide')){
-        if (num_case_plus_10 >= case_totale || !$('#' + num_case_plus_10).hasClass('joueur1')){
-          if (num_case_moins_10 < 0 || !$('#' + num_case_moins_10).hasClass('joueur1')){
+        if (num_case_plus_colonne >= case_totale || !$('#' + num_case_plus_colonne).hasClass('joueur1')){
+          if (num_case_moins_colonne < 0 || !$('#' + num_case_moins_colonne).hasClass('joueur1')){
             if (num_case % colonne_max == 0 || !$('#' + num_case_plus_1).hasClass('joueur1')){
               if (num_case_moins_1 % colonne_max == 0 || !$('#' + num_case_moins_1).hasClass('joueur1')){
                 $('#' + num_case).addClass('joueur2 joueur').removeClass('vide');

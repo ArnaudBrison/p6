@@ -8,22 +8,22 @@ var tour_fonction = {
     var case_joueur = $("." + tour_fonction.joueur_actif).attr('id');
 
     //gestion case + 10/20/30
-    var case_plus_10 = +case_joueur;
+    var case_plus_colonne = +case_joueur;
     for (var i = 0; i < 3; i++){
-       case_plus_10 = case_plus_10 + colonne_max;
-      if (!$('#' + case_plus_10).hasClass('rock') && case_plus_10 <= case_totale && !$('#' + case_plus_10).hasClass('joueur')){
-        $('#' + case_plus_10).addClass('case_active');
+       case_plus_colonne = case_plus_colonne + colonne_max;
+      if (!$('#' + case_plus_colonne).hasClass('rock') && case_plus_colonne <= case_totale && !$('#' + case_plus_colonne).hasClass('joueur')){
+        $('#' + case_plus_colonne).addClass('case_active');
       } else {
         break;
       }
     }
 
     //gestion case - 10/20/30
-    var case_moins_10 = +case_joueur;
+    var case_moins_colonne = +case_joueur;
     for (var i = 0; i < 3; i++){
-      case_moins_10 = case_moins_10 - colonne_max;
-      if (!$('#' + case_moins_10).hasClass('rock') && case_moins_10 > 0 && !$('#' + case_moins_10).hasClass('joueur')){
-        $('#' + case_moins_10).addClass('case_active');
+      case_moins_colonne = case_moins_colonne - colonne_max;
+      if (!$('#' + case_moins_colonne).hasClass('rock') && case_moins_colonne > 0 && !$('#' + case_moins_colonne).hasClass('joueur')){
+        $('#' + case_moins_colonne).addClass('case_active');
       } else {
         break;
       }

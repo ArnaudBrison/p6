@@ -14,8 +14,6 @@ arme["hache"] = 50;
 arme["sabre_laser"] = 70;
 arme["baton"] = 10;
 
-//envoie des armes dans le tableau
-//armes.tab_armes.push(fleau, masse, hache, sabre_laser, baton);
 // mise en place des arme
 plateau_fonction.send_arme_to_placement();
 //initialisation des joueurs

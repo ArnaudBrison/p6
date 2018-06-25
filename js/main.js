@@ -3,11 +3,6 @@ plateau_fonction.init_plateau();
 //placement des rochers
 plateau_fonction.send_rocher_to_placement();
 //initialisation des armes
-/*var baton = new armes.init("baton", 10);
-var fleau = new armes.init("fleau", 40);
-var masse = new armes.init("masse", 40);
-var hache = new armes.init("hache", 50);
-var sabre_laser = new armes.init("sabre_laser", 70);*/
 arme["fleau"] = 40;
 arme["masse"] = 40;
 arme["hache"] = 50;

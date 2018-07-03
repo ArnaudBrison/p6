@@ -1,4 +1,8 @@
 var plateau_fonction = {
+  ligne_max : 9,
+  colonne_max : 10,
+  case_totale : ligne_max * colonne_max,
+  max_rocher : 15,
   init_plateau : function() {
     $('#modal_end').hide();
     var id_case = 1;
@@ -27,7 +31,7 @@ var plateau_fonction = {
       }
       if (type == 'arme '){
         var y = 0;
-        for(var key in arme)
+        for(var key in arme.tab)
         {
           parametre_sup_out = key;
           if (y == i){
@@ -50,7 +54,7 @@ var plateau_fonction = {
   send_arme_to_placement : function() {
     //variable aleatoire du nombre d'armes
     var nb_case = Math.floor(Math.random() * 4) + 1;
-    plateau_fonction.placement('arme ', nb_case, arme);
+    plateau_fonction.placement('arme ', nb_case, arme.tab);
   },
 
   //placement du joueur1
@@ -83,19 +87,5 @@ var plateau_fonction = {
       }
       num_case = Math.floor(Math.random() * case_totale) + 1;
     }
-  },
-
-  init_info_joueur : function(joueur){
-    $('#tab_' + joueur.nom).empty();
-    $('<p/>').append(joueur.nom.toUpperCase()).appendTo('#tab_' + joueur.nom);
-    $('<p/>').addClass('case ' + joueur.nom +'_tab').appendTo('#tab_' + joueur.nom);
-    $('<p/>').append('Sante: ' + joueur.sante).appendTo('#tab_' + joueur.nom);
-    $('<p/>').append('Arme: ' + joueur.arme).appendTo('#tab_' + joueur.nom);
-    $('<p/>').addClass('case ' + joueur.arme).appendTo('#tab_' + joueur.nom);
-    $('<p/>').append('Degats: ' + joueur.degats).appendTo('#tab_' + joueur.nom);
-    $('<h4/>').append('Ton tour').attr('id','turn_' + joueur.nom).appendTo('#tab_' + joueur.nom).hide();
-    var div_bouton = $('<div/>').addClass('div_bouton').appendTo('#tab_' + joueur.nom);
-    $('<a/>').addClass('waves-effect waves-light btn-small attq_def_btn attq  red').append('Attaquer').appendTo(div_bouton).hide();
-    $('<a/>').addClass('waves-effect waves-light btn-small attq_def_btn def blue').append('Defendre').appendTo(div_bouton).hide();
   },
 }

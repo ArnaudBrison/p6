@@ -54,6 +54,12 @@ var tour_fonction = {
     }
   },
 
+  combat : function() {
+    $('#tab_' + tour_fonction.joueur_actif).find('.attq_def_btn').show();
+    tour_fonction.etat = "combat";
+    $('#turn_' + tour_fonction.joueur_actif).hide();
+  },
+
   changement_joueur : function(){
     if (tour_fonction.etat == "combat"){
       $('#tab_' + tour_fonction.joueur_actif).find('.attq_def_btn').hide();

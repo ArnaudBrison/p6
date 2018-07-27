@@ -35,24 +35,16 @@ body {
 .hache {
   background-image:  url("img/hache.jpg");
 }
-.sabre_laser {
+.sabre {
   background-image:  url("img/sabrelaser.jpg");
 }
 
 .joueur1 {
-  background-image:  url("img/joueur1.jpg");
+  background-image:  url("img/joueur1.jpg")!important;
 }
 
 .joueur2 {
-  background-image:  url("img/joueur2.jpg");
-}
-
-.joueur1_tab {
-  background-image:  url("img/joueur1.jpg");
-}
-
-.joueur2_tab {
-  background-image:  url("img/joueur2.jpg");
+  background-image:  url("img/joueur2.jpg")!important;
 }
 
 .case_active {
